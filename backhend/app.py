@@ -11,10 +11,10 @@ app = Flask(__name__)
 import pickle 
 import numpy as np
 
-with open("loan_defaulter_model.pkl","rb") as f:
+with open(model_path,"rb") as f:
     model = pickle.load(f)
 
-with open("scaler.pkl","rb") as f:
+with open(scaler_path,"rb") as f:
   scaler = pickle.load(f)
 
 frozen_feature_list = [
