@@ -2,8 +2,16 @@
 A machine-learning powered REST API that predicts loan default risk based on applicant financial data. 
 The API returns default probability and risk classification (LOW / MEDIUM / HIGH).
 
+
+
+
+
 ## Live API
 https://loan-defaulter-api.onrender.com
+
+
+
+
 
 ## Tech Stack
 - Python
@@ -12,6 +20,10 @@ https://loan-defaulter-api.onrender.com
 - NumPy
 - Gunicorn
 - Render (Cloud Deployment)
+
+
+
+
 
 ## API Endpoints
 
@@ -23,6 +35,10 @@ API is Running
 
 Predict Loan Default
 POST /predict
+
+
+
+
 
 ## Sample Request
 
@@ -40,6 +56,10 @@ POST /predict
   "HasDependents": 2
 }
 
+
+
+
+
 ## Sample Response
 
 {
@@ -49,6 +69,10 @@ POST /predict
   "risk_level": "LOW",
   "threshold": 0.4
 }
+
+
+
+
 
   ## Key Features
 - Probability-based loan default prediction
