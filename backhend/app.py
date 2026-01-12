@@ -1,4 +1,10 @@
 from flask import Flask,request,jsonify
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(BASE_DIR, "loan_defaulter_model.pkl")
+scaler_path = os.path.join(BASE_DIR, "scaler.pkl")
 
 app = Flask(__name__)
 
