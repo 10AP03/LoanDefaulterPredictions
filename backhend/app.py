@@ -1,15 +1,20 @@
-from flask import Flask,request,jsonify
+from flask import Flask,request,jsonify,render_template
 import os
+import pickle 
+import numpy as np
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 model_path = os.path.join(BASE_DIR, "loan_defaulter_model.pkl")
 scaler_path = os.path.join(BASE_DIR, "scaler.pkl")
 
-app = Flask(__name__)
+app = Flask(
+  __name__,
+    template_folder = os.path.join(BASE_DIR, "../frontend"),
+    static_folder = os.path.join(BASE_DIR, "../frontend")
+)
 
-import pickle 
-import numpy as np
+
 
 with open(model_path,"rb") as f:
     model = pickle.load(f)
@@ -35,7 +40,7 @@ frozen_feature_list = [
 
 @app.route('/')
 def index():
-  return "API is Running"
+  return render_template("index.html")
 
 @app.route('/predict', methods = ['POST'])
 def predict():

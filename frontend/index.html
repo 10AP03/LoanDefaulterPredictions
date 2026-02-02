@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loan Default Risk Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+ 
+  <header class="header">
+    <h1>Loan Default Risk Prediction</h1>
+    <p>AI-powered loan risk assessment system</p>
+  </header>
+
+ 
+  <main class="card">
+
+    <form id="loanForm">
+
+      <div class="grid">
+
+        <div class="field">
+          <label>Age</label>
+          <input type="number" id="Age" placeholder="e.g. 30" required />
+        </div>
+
+        <div class="field">
+          <label>Annual Income</label>
+          <input type="number" id="Income" placeholder="e.g. 600000" required />
+        </div>
+
+        <div class="field">
+          <label>Loan Amount</label>
+          <input type="number" id="LoanAmount" placeholder="e.g. 250000" required />
+        </div>
+
+        <div class="field">
+          <label>Credit Score</label>
+          <input type="number" id="CreditScore" placeholder="300 – 850" required />
+        </div>
+
+        <div class="field">
+          <label>Months Employed</label>
+          <input type="number" id="MonthsEmployed" placeholder="e.g. 48" required />
+        </div>
+
+        <div class="field">
+          <label>Credit Lines</label>
+          <input type="number" id="NumCreditLines" placeholder="e.g. 3" required />
+        </div>
+
+        <div class="field">
+          <label>Interest Rate (%)</label>
+          <input type="number" step="0.01" id="InterestRate" placeholder="e.g. 11.5" required />
+        </div>
+
+        <div class="field">
+          <label>Loan Term (Months)</label>
+          <input type="number" id="LoanTerm" placeholder="e.g. 36" required />
+        </div>
+
+        <div class="field">
+          <label>DTI Ratio</label>
+          <input type="number" step="0.01" id="DTIRatio" placeholder="0.0 – 1.0" required />
+        </div>
+
+        <div class="field">
+          <label>Has Mortgage</label>
+          <select id="HasMortgage">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Dependents</label>
+          <input type="number" id="HasDependents" placeholder="e.g. 2" required />
+        </div>
+
+      </div>
+
+      <button type="submit">Predict Risk</button>
+    </form>
+
+    
+    <section id="result" class="hidden"></section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Loan Risk AI System</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
