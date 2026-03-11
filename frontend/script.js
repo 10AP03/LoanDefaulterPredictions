@@ -1,5 +1,6 @@
 const form = document.getElementById("loanForm");
 const resultBox = document.getElementById("result");
+const submitBtn = document.getElementById("submitBtn");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -7,6 +8,10 @@ form.addEventListener("submit", async (e) => {
   // Clear old result
   resultBox.className = "hidden";
   resultBox.innerHTML = "";
+
+  // Loading state so user can't spam click
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Predicting...";
 
   // Collect form data
   const payload = {
@@ -24,7 +29,7 @@ form.addEventListener("submit", async (e) => {
   };
 
   try {
-    // Call backend API
+    // hanged URL to relative "/predict"
     const response = await fetch("/predict", {
       method: "POST",
       headers: {
@@ -45,23 +50,25 @@ form.addEventListener("submit", async (e) => {
     if (result.risk_level === "MEDIUM") riskClass = "medium";
     if (result.risk_level === "HIGH") riskClass = "high";
 
-    // Show result
     resultBox.className = riskClass;
     resultBox.innerHTML = `
       <h3>Prediction Result</h3>
-      <p><b>Default Probability:</b> ${result["default probability"]}</p>
+      <p><b>Default Probability:</b> ${result.default_probability}</p>
       <p><b>Risk Level:</b> ${result.risk_level}</p>
       <p><b>Threshold Used:</b> ${result.threshold}</p>
     `;
 
   } catch (error) {
-    // Error UI
     resultBox.className = "high";
     resultBox.innerHTML = `
       <h3>Error</h3>
       <p>${error.message}</p>
     `;
   }
+
+  // Re-enable button
+  submitBtn.disabled = false;
+  submitBtn.textContent = "Predict Risk";
 
   resultBox.classList.remove("hidden");
 });

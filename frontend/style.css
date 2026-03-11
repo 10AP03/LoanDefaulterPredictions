@@ -85,6 +85,11 @@ button:hover {
   background: #1d4ed8;
 }
 
+button:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
 /* Result */
 #result {
   margin-top: 25px;

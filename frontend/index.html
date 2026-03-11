@@ -4,22 +4,17 @@
   <meta charset="UTF-8" />
   <title>Loan Default Risk Prediction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
- 
   <header class="header">
     <h1>Loan Default Risk Prediction</h1>
     <p>AI-powered loan risk assessment system</p>
   </header>
 
- 
   <main class="card">
-
     <form id="loanForm">
-
       <div class="grid">
 
         <div class="field">
@@ -82,12 +77,11 @@
 
       </div>
 
-      <button type="submit">Predict Risk</button>
+      <!--Added loading state to button -->
+      <button type="submit" id="submitBtn">Predict Risk</button>
     </form>
 
-    
     <section id="result" class="hidden"></section>
-
   </main>
 
   <footer class="footer">
